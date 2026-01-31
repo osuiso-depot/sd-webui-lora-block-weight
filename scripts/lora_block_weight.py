@@ -148,7 +148,7 @@ class Script(modules.scripts.Script):
 
         if os.path.isfile(filepath) and not os.path.isfile(extpath):
             shutil.move(filepath,extpath)
-    
+
         if os.path.isfile(filepathe) and not os.path.isfile(extpathe):
             shutil.move(filepathe,extpathe)
 
@@ -200,24 +200,24 @@ class Script(modules.scripts.Script):
                         lbw_useblocks = gr.Checkbox(value=False, label="Active",interactive=True,elem_id="lbw_active")
                     debug =  gr.Checkbox(value = False,label="Debug",interactive =True,elem_id="lbw_debug")
                 with gr.Column(scale=5):
-                    bw_ratiotags= gr.TextArea(label="",value=ratiostags,visible =True,interactive =True,elem_id="lbw_ratios") 
+                    bw_ratiotags= gr.TextArea(label="",value=ratiostags,visible =True,interactive =True,elem_id="lbw_ratios")
             with gr.Accordion("XYZ plot",open = False):
                 gr.HTML(value='<p style= "word-wrap:break-word;">changeable blocks : BASE,IN00,IN01,IN02,IN03,IN04,IN05,IN06,IN07,IN08,IN09,IN10,IN11,M00,OUT00,OUT01,OUT02,OUT03,OUT04,OUT05,OUT06,OUT07,OUT08,OUT09,OUT10,OUT11</p>')
-                xyzsetting = gr.Radio(label = "Active",choices = ["Disable","XYZ plot","Effective Block Analyzer"], value ="Disable",type = "index") 
+                xyzsetting = gr.Radio(label = "Active",choices = ["Disable","XYZ plot","Effective Block Analyzer"], value ="Disable",type = "index")
                 with gr.Row(visible = False) as esets:
-                    diffcol = gr.Radio(label = "diff image color",choices = ["black","white"], value ="black",type = "value",interactive =True) 
+                    diffcol = gr.Radio(label = "diff image color",choices = ["black","white"], value ="black",type = "value",interactive =True)
                     revxy = gr.Checkbox(value = False,label="change X-Y",interactive =True,elem_id="lbw_changexy")
                     thresh = gr.Textbox(label="difference threshold",lines=1,value="20",interactive =True,elem_id="diff_thr")
                 xtype = gr.Dropdown(label="X Types", choices=[x for x in ATYPES], value=ATYPES [2],interactive =True,elem_id="lbw_xtype")
                 xmen = gr.Textbox(label="X Values",lines=1,value="0,0.25,0.5,0.75,1",interactive =True,elem_id="lbw_xmen")
-                ytype = gr.Dropdown(label="Y Types", choices=[y for y in ATYPES], value=ATYPES [1],interactive =True,elem_id="lbw_ytype")    
+                ytype = gr.Dropdown(label="Y Types", choices=[y for y in ATYPES], value=ATYPES [1],interactive =True,elem_id="lbw_ytype")
                 ymen = gr.Textbox(label="Y Values" ,lines=1,value="IN05-OUT05",interactive =True,elem_id="lbw_ymen")
-                ztype = gr.Dropdown(label="Z type", choices=[z for z in ATYPES], value=ATYPES[0],interactive =True,elem_id="lbw_ztype")    
+                ztype = gr.Dropdown(label="Z type", choices=[z for z in ATYPES], value=ATYPES[0],interactive =True,elem_id="lbw_ztype")
                 zmen = gr.Textbox(label="Z values",lines=1,value="",interactive =True,elem_id="lbw_zmen")
 
-                exmen = gr.Textbox(label="Range",lines=1,value="0.5,1",interactive =True,elem_id="lbw_exmen",visible = False) 
-                eymen = gr.Textbox(label="Blocks (12ALL,17ALL,20ALL,26ALL also can be used)" ,lines=1,value="BASE,IN00,IN01,IN02,IN03,IN04,IN05,IN06,IN07,IN08,IN09,IN10,IN11,M00,OUT00,OUT01,OUT02,OUT03,OUT04,OUT05,OUT06,OUT07,OUT08,OUT09,OUT10,OUT11",interactive =True,elem_id="lbw_eymen",visible = False)  
-                ecount = gr.Number(value=1, label="number of seed", interactive=True, visible = True)           
+                exmen = gr.Textbox(label="Range",lines=1,value="0.5,1",interactive =True,elem_id="lbw_exmen",visible = False)
+                eymen = gr.Textbox(label="Blocks (12ALL,17ALL,20ALL,26ALL also can be used)" ,lines=1,value="BASE,IN00,IN01,IN02,IN03,IN04,IN05,IN06,IN07,IN08,IN09,IN10,IN11,M00,OUT00,OUT01,OUT02,OUT03,OUT04,OUT05,OUT06,OUT07,OUT08,OUT09,OUT10,OUT11",interactive =True,elem_id="lbw_eymen",visible = False)
+                ecount = gr.Number(value=1, label="number of seed", interactive=True, visible = True)
 
             with gr.Accordion("Weights setting",open = True):
                 with gr.Row():
@@ -225,20 +225,20 @@ class Script(modules.scripts.Script):
                     reloadtags = gr.Button(value="Reload Tags",variant='primary',elem_id="lbw_reload")
                     savetext = gr.Button(value="Save Presets",variant='primary',elem_id="lbw_savetext")
                     openeditor = gr.Button(value="Open TextEditor",variant='primary',elem_id="lbw_openeditor")
-                lbw_loraratios = gr.TextArea(label="",value=lbwpresets,visible =True,interactive  = True,elem_id="lbw_ratiospreset")      
-            
-            with gr.Accordion("Elemental",open = False):  
+                lbw_loraratios = gr.TextArea(label="",value=lbwpresets,visible =True,interactive  = True,elem_id="lbw_ratiospreset")
+
+            with gr.Accordion("Elemental",open = False):
                 with gr.Row():
                     e_reloadtext = gr.Button(value="Reload Presets",variant='primary',elem_id="lbw_reload")
                     e_savetext = gr.Button(value="Save Presets",variant='primary',elem_id="lbw_savetext")
                     e_openeditor = gr.Button(value="Open TextEditor",variant='primary',elem_id="lbw_openeditor")
                 elemsets = gr.Checkbox(value = False,label="print change",interactive =True,elem_id="lbw_print_change")
-                elemental = gr.TextArea(label="Identifer:BlockID:Elements:Ratio,...,separated by empty line ",value = elempresets,interactive =True,elem_id="element") 
+                elemental = gr.TextArea(label="Identifer:BlockID:Elements:Ratio,...,separated by empty line ",value = elempresets,interactive =True,elem_id="element")
 
                 d_true = gr.Checkbox(value = True,visible = False)
                 d_false = gr.Checkbox(value = False,visible = False)
-            
-            with gr.Accordion("Make Weights",open = False):  
+
+            with gr.Accordion("Make Weights",open = False):
                 with gr.Row():
                     m_text = gr.Textbox(value="",label="Weights")
                 with gr.Row():
@@ -309,7 +309,7 @@ class Script(modules.scripts.Script):
                         if block in targ_blocks:
                             output.append(str(blocks[i]))
                     return [",".join(output)] + [gr.update(visible = True if block in targ_blocks else False) for block in BLOCKID26]
-                
+
                 m_add.click(fn=addweights, inputs=[m_text,m_name,lbw_loraratios],outputs=[lbw_loraratios])
                 m_add_save.click(fn=addweights, inputs=[m_text,m_name,lbw_loraratios, d_true],outputs=[lbw_loraratios])
                 m_type.change(fn=changetheblocks, inputs=[m_type] + blocks,outputs=[m_text] + blocks)
@@ -332,7 +332,7 @@ class Script(modules.scripts.Script):
         def openeditors(b):
             path = extpath if b else extpathe
             subprocess.Popen(['start', path], shell=True)
-                  
+
         def reloadpresets(isweight):
             if isweight:
                 try:
@@ -404,7 +404,7 @@ class Script(modules.scripts.Script):
         lorachecker(self)
         self.log["enable LBW"] = useblocks
         self.log["registerd"] = registerd
-            
+
         if useblocks:
             self.active = True
             loraratios=loraratios.splitlines()
@@ -445,6 +445,103 @@ class Script(modules.scripts.Script):
                         lora.unet_multiplier = u
                         sets.append(key)
 
+        def manual_lora_update(self, key, te, u, sets):
+            if forge or reforge:
+                # Fallback to standard setparams for Forge/ReForge as they have different patching logic
+                setparams(self, key, te, u, sets)
+                return
+
+            import torch
+            import networks
+
+            updated_lora = None
+            for dicts in [self.lora, self.lycoris, self.networks]:
+                for lora in dicts:
+                    if lora.name.split("_in_LBW_")[0] == key:
+                        updated_lora = lora
+                        break
+                if updated_lora: break
+
+            if not updated_lora: return
+
+            # Calculate deltas
+            te_delta = te - updated_lora.te_multiplier
+            unet_delta = u - updated_lora.unet_multiplier
+
+            if te_delta == 0 and unet_delta == 0:
+                sets.append(key)
+                return
+
+            print(f"LBW: Manually updating {key} (te: {updated_lora.te_multiplier}->{te}, u: {updated_lora.unet_multiplier}->{u})")
+
+            # Update weights manually
+            for name, module in updated_lora.modules.items():
+                if not hasattr(module, 'calc_updown'): continue
+
+                # Determine multiplier change for this specific module
+                delta = te_delta if 'transformer' in module.sd_key[:20] else unet_delta
+
+                if delta == 0: continue
+
+                sd_module = module.sd_module
+                if not hasattr(sd_module, 'weight'): continue
+
+                # Calculate updown with original backup weights
+                weight = getattr(sd_module, 'network_weights_backup', None)
+                if weight is None:
+                    # If no backup, maybe use current weight? Risk of drift.
+                    # Standard A1111 ensures backup exists if network applied.
+                    continue
+
+                # We need to handle MultiheadAttention special cases if necessary,
+                # but standard A1111 network_apply_weights handles it by splitting.
+                # Here we assume simple case or compatible structure.
+                # Actually, calc_updown expects the weight tensor matching the module style.
+
+                try:
+                    with torch.no_grad():
+                         # We pass sd_module.weight to force GPU execution.
+                         # calc_updown uses this argument's device to cast up/down weights.
+                         updown, ex_bias = module.calc_updown(sd_module.weight)
+
+                         if len(sd_module.weight.shape) == 4 and sd_module.weight.shape[1] == 9:
+                             # inpainting padding support
+                             updown = torch.nn.functional.pad(updown, (0, 0, 0, 0, 0, 5))
+
+                         # Apply scale and multiplier delta
+                         # effective_delta = updown * delta * scale
+
+                         scale = module.calc_scale()
+                         scaled_updown = updown * scale * delta
+
+                         # Apply to weight
+                         sd_module.weight += scaled_updown.to(sd_module.weight.device, dtype=sd_module.weight.dtype)
+
+                         if ex_bias is not None and hasattr(sd_module, 'bias') and sd_module.bias is not None:
+                             sd_module.bias += (ex_bias * delta).to(sd_module.bias.device, dtype=sd_module.bias.dtype)
+
+                except Exception as e:
+                    print(f"LBW Manual Update Error on {name}: {e}")
+
+            # Update the LoRA object's properties so future checks see the new value
+            updated_lora.te_multiplier = te
+            updated_lora.unet_multiplier = u
+            sets.append(key)
+
+            # CRITICAL: Update the cache on the layers to prevent re-patching
+            # We construct the NEW wanted_names tuple.
+            wanted_names = tuple((x.name, x.te_multiplier, x.unet_multiplier, x.dyn_dim) for x in networks.loaded_networks)
+
+            # Iterate over all modules that might have the cache
+            # We can use shared.sd_model.modules() but that's broad.
+            # Faster optimization: only update modules belonging to this LoRA?
+            # No, because unrelated modules also check wanted_names.
+            # We must update ALL modules that have the cache.
+
+            for m in shared.sd_model.modules():
+                if hasattr(m, "network_current_names"):
+                    m.network_current_names = wanted_names
+
         if forge and self.active:
             def apply_weight(stop = False):
                 if not stop:
@@ -454,23 +551,28 @@ class Script(modules.scripts.Script):
 
                 lora_patches = shared.sd_model.forge_objects.unet.lora_patches
                 refresh_keys = {}
+                t0 = time.time()
                 for m, l, e, s, (patch_key, lora_patch) in zip(self.uf, self.lf, self.ef, flag_step, list(lora_patches.items())):
+                    if s is None or s != params.sampling_step:
+                        continue
+
                     refresh = False
+                    e_list = e.replace("\n", ",").split(",") if isinstance(e, str) else e
                     for key, vals in lora_patch.items():
                         n_vals = []
                         for v in [v for v in vals if v[1][0] in LORAS]:
-                            if s is not None and s == params.sampling_step:
-                                if not stop:
-                                    ratio, _ = ratiodealer(key.replace(".","_"), l, e)
-                                    n_vals.append((ratio * m, *v[1:]))
-                                else:
-                                    n_vals.append((0, *v[1:]))
-                                refresh = True
+                            if not stop:
+                                ratio, _ = ratiodealer(key.replace(".","_"), l, e_list)
+                                n_vals.append((ratio * m, *v[1:]))
                             else:
-                                n_vals.append(v)
+                                n_vals.append((0, *v[1:]))
+                            refresh = True
                         lora_patch[key] = n_vals
                     if refresh:
                         refresh_keys[patch_key] = None
+                print(f"[LBW Profiling] Patch loop took {time.time() - t0:.4f}s")
+
+                t1 = time.time()
 
                 if len(refresh_keys):
                     for refresh_key in list(refresh_keys.keys()):
@@ -480,7 +582,10 @@ class Script(modules.scripts.Script):
                         refresh_keys[refresh_key] = new_key
                         lora_patches[new_key] = patch
 
+                    print(f"[LBW Profiling] refresh_loras preparation took {time.time() - t1:.4f}s")
+                    t2 = time.time()
                     shared.sd_model.forge_objects.unet.refresh_loras()
+                    print(f"[LBW Profiling] refresh_loras execution took {time.time() - t2:.4f}s")
 
                     for refresh_key, new_key in list(refresh_keys.items()):
                         patch = lora_patches[new_key]
@@ -495,21 +600,36 @@ class Script(modules.scripts.Script):
 
         if reforge and self.active:
             if params.sampling_step in self.startsf:
+                t0 = time.time()
                 shared.sd_model.forge_objects.unet.unpatch_model(device_to=devices.device)
+                print(f"[LBW Profiling] unpatch_model took {time.time() - t0:.4f}s")
+
+                t1 = time.time()
+
+                # Pre-parse elementals
+                ef_parsed = [e.replace("\n", ",").split(",") if isinstance(e, str) else e for e in self.ef]
+
                 for key, vals in shared.sd_model.forge_objects.unet.patches.items():
                     n_vals = []
                     lvals = [val for val in vals if val[1][0] in LORAS]
-                    for s, v, m, l, e in zip(self.startsf, lvals, self.uf, self.lf, self.ef):
+                    for s, v, m, l, e in zip(self.startsf, lvals, self.uf, self.lf, ef_parsed):
                         if s is not None and s == params.sampling_step:
                             ratio, errormodules = ratiodealer(key.replace(".","_"), l, e)
                             n_vals.append((ratio * m, *v[1:]))
                         else:
                             n_vals.append(v)
                     shared.sd_model.forge_objects.unet.patches[key] = n_vals
+                print(f"[LBW Profiling] Patch update loop took {time.time() - t1:.4f}s")
+
+                t2 = time.time()
                 shared.sd_model.forge_objects.unet.patch_model()
+                print(f"[LBW Profiling] patch_model took {time.time() - t2:.4f}s")
 
             if params.sampling_step in self.stopsf:
+                t0 = time.time()
                 shared.sd_model.forge_objects.unet.unpatch_model(device_to=devices.device)
+                print(f"[LBW Profiling] unpatch_model (stop) took {time.time() - t0:.4f}s")
+                t1 = time.time()
                 for key, vals in shared.sd_model.forge_objects.unet.patches.items():
                     n_vals = []
                     lvals = [val for val in vals if val[1][0] in LORAS]
@@ -519,9 +639,14 @@ class Script(modules.scripts.Script):
                         else:
                             n_vals.append(v)
                     shared.sd_model.forge_objects.unet.patches[key] = n_vals
+                print(f"[LBW Profiling] Patch update loop (stop) took {time.time() - t1:.4f}s")
+
+                t2 = time.time()
                 shared.sd_model.forge_objects.unet.patch_model()
+                print(f"[LBW Profiling] patch_model (stop) took {time.time() - t2:.4f}s")
 
         elif self.active:
+            t0 = time.time()
             if self.starts and params.sampling_step == 0:
                 for key, step_te_u in self.starts.items():
                     setparams(self, key, 0, 0, [])
@@ -532,22 +657,25 @@ class Script(modules.scripts.Script):
                 for key, step_te_u in self.starts.items():
                     step, te, u = step_te_u
                     if params.sampling_step > step - 2:
-                        setparams(self, key, te, u, sets)
-                        #print("\nstart", self, key, u, te, sets)
+                        manual_lora_update(self, key, te, u, sets)
                 for key in sets:
                     if key in self.starts:
                         del self.starts[key]
+                print(f"[LBW Profiling] starts loop took {time.time() - t0:.4f}s")
 
+            t1 = time.time()
             if self.stops:
                 sets = []
                 for key, step in self.stops.items():
                     if params.sampling_step > step - 2:
-                        setparams(self, key, 0, 0, sets)
-                        #print("\nstop", self, key, 0, 0, sets)
+                        manual_lora_update(self, key, 0, 0, sets)
                 for key in sets:
                     if key in self.stops:
                         del self.stops[key]
-    
+                print(f"[LBW Profiling] stops loop took {time.time() - t1:.4f}s")
+
+
+
     def before_process_batch(self, p, loraratios,useblocks,*args,**kwargs):
         if useblocks:
             resetmemory()
@@ -594,7 +722,7 @@ class Script(modules.scripts.Script):
             shared.sd_model.forge_objects_after_applying_lora.unet.unpatch_model()
             shared.sd_model.forge_objects_after_applying_lora.clip.patcher.unpatch_model()
 
-        global lxyz,lzyx,xyelem             
+        global lxyz,lzyx,xyelem
         lxyz = lzyx = xyelem = ""
         if debug:
             print(self.log)
@@ -630,7 +758,7 @@ class Script(modules.scripts.Script):
                 if eymen == all:
                     eymen = ",".join(BLOCKIDS[i])
 
-            if xyzsetting > 1: 
+            if xyzsetting > 1:
                 xmen,ymen = exmen,eymen
                 xtype,ytype = "values","ID"
                 ebase = xmen.split(",")[1]
@@ -649,7 +777,7 @@ class Script(modules.scripts.Script):
                 print(f"the die was thrown : {am}")
 
             if p.seed == -1: p.seed = str(random.randrange(4294967294))
-                
+
             #print(f"xs:{xmen},ys:{ymen},zs:{zmen}")
 
             def adjuster(a,at):
@@ -657,7 +785,7 @@ class Script(modules.scripts.Script):
                 a = [a.strip() for a in a.split(',')]
                 if "seed" in at:dicedealer(a)
                 return a
-            
+
             xs = adjuster(xmen,xtype)
             ys = adjuster(ymen,ytype)
             zs = adjuster(zmen,ztype)
@@ -673,7 +801,7 @@ class Script(modules.scripts.Script):
                 #print(f"weights from : {base}")
                 ids = [z.strip() for z in ids.split(' ')]
                 weights_t = [w.strip() for w in base.split(',')]
-                blockid =  BLOCKIDS[BLOCKNUMS.index(len(weights_t))] 
+                blockid =  BLOCKIDS[BLOCKNUMS.index(len(weights_t))]
                 if ids[0]!="NOT":
                     flagger=[False]*len(weights_t)
                     changer = True
@@ -689,7 +817,7 @@ class Script(modules.scripts.Script):
                         else:
                             flagger[blockid.index(it[1]):blockid.index(it[0])+1] = [changer]*(blockid.index(it[0])-blockid.index(it[1])+1)
                     else:
-                        flagger[blockid.index(id)] =changer    
+                        flagger[blockid.index(id)] =changer
                 for i,f in enumerate(flagger):
                     if f:weights_t[i]=alpha
                 outext = ",".join(weights_t)
@@ -743,12 +871,12 @@ class Script(modules.scripts.Script):
             totalcount = len(xs)*len(ys)*len(zs) if xyzsetting < 2 else len(xs)*len(ys)*len(zs)  //2 +1
             shared.total_tqdm.updateTotal(totalcount)
             xc = yc =zc = 0
-            state.job_count = totalcount 
+            state.job_count = totalcount
             totalcount = len(xs)*len(ys)*len(zs)
             c_base = base
 
             for z in zs:
-                generatedbases=[] 
+                generatedbases=[]
                 images = []
                 yc = 0
                 xyzdealer(z,ztype)
@@ -827,7 +955,7 @@ def loranames(all_prompts):
     names = ""
     for called in calledloras:
         if len(called.items) <3:continue
-        names += called.items[0] 
+        names += called.items[0]
     return names
 
 def lorachecker(self):
@@ -837,7 +965,7 @@ def lorachecker(self):
         self.layer_name = "network_layer_name"
     except:
         self.isnet = False
-        self.layer_name = "lora_layer_name"  
+        self.layer_name = "lora_layer_name"
     try:
         import lora
         self.islora = True
@@ -854,8 +982,8 @@ def lorachecker(self):
     self.is_sd2 = type(model).__name__ == "StableDiffusion2" or getattr(model,'is_sd2', False)
     self.is_sd1 = type(model).__name__ == "StableDiffusion" or getattr(model,'is_sd1', False)
     self.is_flux = type(model).__name__ == "Flux" or getattr(model,'is_flux', False)
-    
-    self.log["isnet"] = self.isnet 
+
+    self.log["isnet"] = self.isnet
     self.log["isxl"] = self.is_sdxl
     self.log["islora"] = self.islora
 
@@ -894,7 +1022,7 @@ def loradealer(self, prompts,lratios,elementals, extra_network_data = None):
         fparams = []
         load = False
         go_lbw = False
-        
+
         if not (ltype == "lora" or ltype == "lyco") : continue
         for called in extra_network_data[ltype]:
             items = called.items
@@ -909,7 +1037,7 @@ def loradealer(self, prompts,lratios,elementals, extra_network_data = None):
             start = syntaxdealer(items,"start=",None)
             stop = syntaxdealer(items,"stop=",None)
             start, stop = stepsdealer(syntaxdealer(items,"step=",None), start, stop)
-            
+
             if weights is not None and (weights in lratios or any(weights.count(",") == x - 1 for x in BLOCKNUMS)):
                 wei = lratios[weights] if weights in lratios else weights
                 ratios = [w.strip() for w in wei.split(",")]
@@ -923,7 +1051,7 @@ def loradealer(self, prompts,lratios,elementals, extra_network_data = None):
                         ratios[i] = getinheritedweight(base, r)
                     else:
                         ratios[i] = float(r)
-                        
+
                 if not (len(ratios) == 26 or len(ratios) == 61):
                     ratios = to26(ratios)
                 setnow = True
@@ -955,7 +1083,7 @@ def loradealer(self, prompts,lratios,elementals, extra_network_data = None):
             self.log[name] = [te,unet,ratios,elem,start,stop]
 
 
-        
+
         self.startsf = [int(s) if s is not None else None for s in starts]
         self.stopsf = [int(s) if s is not None else None for s in stops]
         self.uf = unet_multipliers
@@ -976,7 +1104,7 @@ def settolist(ls,vs):
     for l, v in zip(ls,vs):
         l.append(v)
 
-def syntaxdealer(items,target,index): #type "unet=", "x=", "lwbe=" 
+def syntaxdealer(items,target,index): #type "unet=", "x=", "lwbe="
     for item in items:
         if target in item:
             return item.replace(target,"")
@@ -1008,9 +1136,9 @@ def getinheritedweight(weight, offset):
     if match.group(1) == "+":
         return float(weight) + float(match.group(2))
     elif match.group(1) == "-":
-        return float(weight) - float(match.group(2))  
+        return float(weight) - float(match.group(2))
     else:
-        return float(weight) 
+        return float(weight)
 
 def load_loras_blocks(self, names, lwei,te,unet,elements,ltype = "lora", starts = None):
     oldnew=[]
@@ -1047,7 +1175,7 @@ def load_loras_blocks(self, names, lwei,te,unet,elements,ltype = "lora", starts 
                     setall(loaded,te[n],unet[n])
 
     elif "forge" == ltype:
-        lora_patches = shared.sd_model.forge_objects_after_applying_lora.unet.patches if "reforge" in ltype else shared.sd_model.forge_objects_after_applying_lora.unet.lora_patches 
+        lora_patches = shared.sd_model.forge_objects_after_applying_lora.unet.patches if "reforge" in ltype else shared.sd_model.forge_objects_after_applying_lora.unet.lora_patches
         lbwf(lora_patches, unet, lwei, elements, starts, self.is_flux)
 
         lora_patches = shared.sd_model.forge_objects_after_applying_lora.clip.patcher.patches if "reforge" in ltype else shared.sd_model.forge_objects_after_applying_lora.clip.patcher.lora_patches
@@ -1126,11 +1254,11 @@ def newrun(p, *args):
         script = None
         for obj in scripts.scripts_txt2img.alwayson_scripts if txt2img else scripts.scripts_img2img.alwayson_scripts:
             if "lora_block_weight" in obj.filename:
-                script = obj 
+                script = obj
                 script_args = args[script.args_from:script.args_to]
     else:
         script = scripts.scripts_txt2img.selectable_scripts[script_index-1] if txt2img else scripts.scripts_img2img.selectable_scripts[script_index-1]
-        
+
         if script is None:
             return None
 
@@ -1167,16 +1295,16 @@ def effectivechecker(imgs,ss,ls,diffcol,thresh,revxy):
     for img in imgs:
         abs_diff = cv2.absdiff(np.array(img) ,  np.array(orig))
 
-        abs_diff_t = cv2.threshold(abs_diff, int(thresh), 255, cv2.THRESH_BINARY)[1]        
+        abs_diff_t = cv2.threshold(abs_diff, int(thresh), 255, cv2.THRESH_BINARY)[1]
         res = abs_diff_t.astype(np.uint8)
         percentage = (np.count_nonzero(res) * 100)/ res.size
         if "white" in diffcol: abs_diff = cv2.bitwise_not(abs_diff)
         outnum.append(percentage)
 
-        abs_diff = Image.fromarray(abs_diff)     
+        abs_diff = Image.fromarray(abs_diff)
 
         diffs.append(abs_diff)
-            
+
     outs = []
     for i in range(len(ls)):
         ls[i] = ls[i] + "\n Diff : " + str(round(outnum[i],3)) + "%"
@@ -1217,7 +1345,7 @@ def lbw(lora,lwei,elemental):
                 lora.modules[key].up.weight= torch.nn.Parameter(lora.modules[key].up.weight *ratio)
                 #print("LoRA")
                 set = True
-        if not set : 
+        if not set :
             print("UnKnown LoRA")
 
     if len(errormodules) > 0:
@@ -1280,17 +1408,22 @@ def lbwrf(mt, mu, lwei, elemental, starts):
             n_vals.append((ratio * m, *v[1:]))
             if not picked:errormodules.append(key)
         shared.sd_model.forge_objects_after_applying_lora.clip.patcher.patches[key] = n_vals
-    
+
     if len(errormodules) > 0:
         print("Unknown modules:",errormodules)
 
-def ratiodealer(key, lwei, elemental:str, flux = False):
+def ratiodealer(key, lwei, elemental, flux = False):
     ratio = 1
     picked = False
-    elemental = elemental.replace("\n", ",")
-    elemental = elemental.split(",")
+
+    # Pre-processing check
+    if isinstance(elemental, str):
+        elemental = elemental.replace("\n", ",")
+        elemental = elemental.split(",")
+    # If elemental is already a list, use it directly (optimized path)
+
     elemkey = ""
-    
+
     if flux:
         block = elemkey = get_flux_blocks(key)
         if block in BLOCKIDFLUX:
@@ -1301,7 +1434,7 @@ def ratiodealer(key, lwei, elemental:str, flux = False):
             if block in key:
                 if i == 26 or i == 27:
                     i = 0
-                ratio = lwei[i] 
+                ratio = lwei[i]
                 picked = True
                 elemkey = BLOCKID26[i]
 
@@ -1326,7 +1459,7 @@ def ratiodealer(key, lwei, elemental:str, flux = False):
                 dr = float(dr)
                 if princ :print(dbs,dws,key,dr)
                 ratio = dr
-    
+
     return ratio, picked
 
 LORAANDSOON = {
@@ -1392,7 +1525,7 @@ def get_flux_blocks(key):
         return "CLIP"
     if "t5xxl" in key:
         return "T5"
-    
+
     match = re.search(r'\_(\d+)\_', key)
     if "double_blocks" in key:
         return f"D{match.group(1).zfill(2) }"
