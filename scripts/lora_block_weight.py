@@ -661,7 +661,7 @@ class Script(modules.scripts.Script):
                 for key in sets:
                     if key in self.starts:
                         del self.starts[key]
-                print(f"[LBW Profiling] starts loop took {time.time() - t0:.4f}s")
+                # print(f"[LBW Profiling] starts loop took {time.time() - t0:.4f}s")
 
             t1 = time.time()
             if self.stops:
@@ -672,7 +672,7 @@ class Script(modules.scripts.Script):
                 for key in sets:
                     if key in self.stops:
                         del self.stops[key]
-                print(f"[LBW Profiling] stops loop took {time.time() - t1:.4f}s")
+                # print(f"[LBW Profiling] stops loop took {time.time() - t1:.4f}s")
 
 
 
